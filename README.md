@@ -47,7 +47,7 @@ This is the Base Repository of Panviva.Sdk which includes
 1. Add middleware and Service.
 	- To Configure method
         ```c#
-        	app.UsePanvivaExceptionMiddleware();
+        app.UsePanvivaExceptionMiddleware();
         ```
 
 	- To ConfigureServices method
@@ -60,7 +60,7 @@ This is the Base Repository of Panviva.Sdk which includes
 
 	```c#
 	public MyClassConstructor(IQueryHandler queryHandler, ICommandHandler commandHandler)
-        {
+	{
 		_queryHandler = queryHandler;
 		_commandHandler = commandHandler;
 	}		
