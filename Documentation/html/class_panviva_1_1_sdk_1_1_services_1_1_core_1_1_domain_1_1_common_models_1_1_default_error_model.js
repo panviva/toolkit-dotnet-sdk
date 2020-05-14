@@ -1,0 +1,4 @@
+var class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_common_models_1_1_default_error_model =
+[
+    [ "Message", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_common_models_1_1_default_error_model.html#a2cea383ede103c642418027eef70cb35", null ]
+];

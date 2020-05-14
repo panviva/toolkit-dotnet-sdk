@@ -1,0 +1,7 @@
+var namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions =
+[
+    [ "FailedApiRequestException", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_failed_api_request_exception.html", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_failed_api_request_exception" ],
+    [ "PanvivaApiExceptionMiddleware", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_panviva_api_exception_middleware.html", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_panviva_api_exception_middleware" ],
+    [ "PanvivaApiExceptionMiddlewareExtensions", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_panviva_api_exception_middleware_extensions.html", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_panviva_api_exception_middleware_extensions" ],
+    [ "QueryModelException", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_query_model_exception.html", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_query_model_exception" ]
+];

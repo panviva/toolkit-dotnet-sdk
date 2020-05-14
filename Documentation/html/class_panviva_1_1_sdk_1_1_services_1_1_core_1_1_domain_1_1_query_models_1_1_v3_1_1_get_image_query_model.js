@@ -1,0 +1,4 @@
+var class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_query_models_1_1_v3_1_1_get_image_query_model =
+[
+    [ "Id", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_query_models_1_1_v3_1_1_get_image_query_model.html#a8d9831b2412d40f6f981ec7f256f96c9", null ]
+];

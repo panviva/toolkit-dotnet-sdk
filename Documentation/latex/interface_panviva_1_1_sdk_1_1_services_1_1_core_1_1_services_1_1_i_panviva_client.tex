@@ -1,0 +1,97 @@
+\hypertarget{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client}{}\doxysection{Panviva.\+Sdk.\+Services.\+Core.\+Services.\+I\+Panviva\+Client Interface Reference}
+\label{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client}\index{Panviva.Sdk.Services.Core.Services.IPanvivaClient@{Panviva.Sdk.Services.Core.Services.IPanvivaClient}}
+
+
+Interface of \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI helper library.  
+
+
+Inheritance diagram for Panviva.\+Sdk.\+Services.\+Core.\+Services.\+I\+Panviva\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ T\+Result $>$ \mbox{\hyperlink{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client_a9cc9aadad19800017f32c35b62d57dcd}{Get\+From\+Panviva\+Api$<$ T\+Result $>$}} (string query\+Url, string api\+Key, int retry\+Count)
+\begin{DoxyCompactList}\small\item\em Calls the panviva A\+PI. \end{DoxyCompactList}\item 
+Task$<$ T\+Result $>$ \mbox{\hyperlink{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client_ac082cbbe232e0c11cc8ee9b9117d577d}{Post\+To\+Panviva\+Api$<$ T\+Result $>$}} (string query\+Url, string api\+Key, object request\+Body, int retry\+Count)
+\begin{DoxyCompactList}\small\item\em Posts to panviva A\+P\+Is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface of \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI helper library. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client_a9cc9aadad19800017f32c35b62d57dcd}\label{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client_a9cc9aadad19800017f32c35b62d57dcd}} 
+\index{Panviva.Sdk.Services.Core.Services.IPanvivaClient@{Panviva.Sdk.Services.Core.Services.IPanvivaClient}!GetFromPanvivaApi$<$ TResult $>$@{GetFromPanvivaApi$<$ TResult $>$}}
+\index{GetFromPanvivaApi$<$ TResult $>$@{GetFromPanvivaApi$<$ TResult $>$}!Panviva.Sdk.Services.Core.Services.IPanvivaClient@{Panviva.Sdk.Services.Core.Services.IPanvivaClient}}
+\doxysubsubsection{\texorpdfstring{GetFromPanvivaApi$<$ TResult $>$()}{GetFromPanvivaApi< TResult >()}}
+{\footnotesize\ttfamily Task$<$T\+Result$>$ Panviva.\+Sdk.\+Services.\+Core.\+Services.\+I\+Panviva\+Client.\+Get\+From\+Panviva\+Api$<$ T\+Result $>$ (\begin{DoxyParamCaption}\item[{string}]{query\+Url,  }\item[{string}]{api\+Key,  }\item[{int}]{retry\+Count }\end{DoxyParamCaption})}
+
+
+
+Calls the panviva A\+PI. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\+Result} & The type of the result.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Url} & The query U\+RL.\\
+\hline
+{\em api\+Key} & The api key.\\
+\hline
+{\em retry\+Count} & The retry count.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result Model.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_panviva_client_aba8906dee27a8755c5eccc6622da8fb1}{Panviva.\+Sdk.\+Services.\+Core.\+Services.\+Panviva\+Client}}.
+
+\mbox{\Hypertarget{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client_ac082cbbe232e0c11cc8ee9b9117d577d}\label{interface_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_i_panviva_client_ac082cbbe232e0c11cc8ee9b9117d577d}} 
+\index{Panviva.Sdk.Services.Core.Services.IPanvivaClient@{Panviva.Sdk.Services.Core.Services.IPanvivaClient}!PostToPanvivaApi$<$ TResult $>$@{PostToPanvivaApi$<$ TResult $>$}}
+\index{PostToPanvivaApi$<$ TResult $>$@{PostToPanvivaApi$<$ TResult $>$}!Panviva.Sdk.Services.Core.Services.IPanvivaClient@{Panviva.Sdk.Services.Core.Services.IPanvivaClient}}
+\doxysubsubsection{\texorpdfstring{PostToPanvivaApi$<$ TResult $>$()}{PostToPanvivaApi< TResult >()}}
+{\footnotesize\ttfamily Task$<$T\+Result$>$ Panviva.\+Sdk.\+Services.\+Core.\+Services.\+I\+Panviva\+Client.\+Post\+To\+Panviva\+Api$<$ T\+Result $>$ (\begin{DoxyParamCaption}\item[{string}]{query\+Url,  }\item[{string}]{api\+Key,  }\item[{object}]{request\+Body,  }\item[{int}]{retry\+Count }\end{DoxyParamCaption})}
+
+
+
+Posts to panviva A\+P\+Is. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\+Result} & The type of the result.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em query\+Url} & The query U\+RL.\\
+\hline
+{\em api\+Key} & The api key.\\
+\hline
+{\em request\+Body} & The request body.\\
+\hline
+{\em retry\+Count} & The retry count.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of Post Request.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_services_1_1_panviva_client_a4dc9c1923594f527c4d2771d26b4994b}{Panviva.\+Sdk.\+Services.\+Core.\+Services.\+Panviva\+Client}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/cshehan/source/public-\/repo-\/panviva/panviva-\/sdk-\/dotnet/\+Panviva.\+Sdk.\+Services.\+Core/\+Services/I\+Panviva\+Client.\+cs\end{DoxyCompactItemize}

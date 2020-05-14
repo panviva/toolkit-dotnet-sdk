@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['datatype_611',['DataType',['../class_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_shared_1_1_meta_data_value_details.html#a8d28d6e478a16935af03fc9be8c554cd',1,'Panviva::Sdk::Models::V3::Shared::MetaDataValueDetails']]],
+  ['datecreated_612',['DateCreated',['../class_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_get_1_1_get_artefact_result_model.html#acf6e88ac2dafd758e0ca45b45506470b',1,'Panviva.Sdk.Models.V3.Get.GetArtefactResultModel.DateCreated()'],['../class_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_shared_1_1_base_entity.html#a6c42a0dcd36a9e91827eeadf2bada79b',1,'Panviva.Sdk.Models.V3.Shared.BaseEntity.DateCreated()']]],
+  ['datemodified_613',['DateModified',['../class_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_get_1_1_get_artefact_result_model.html#a67c49c7b9f2c09ab32b2872eb8f9564b',1,'Panviva.Sdk.Models.V3.Get.GetArtefactResultModel.DateModified()'],['../class_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_shared_1_1_base_entity.html#adc22d21fa2c94797c45ae855abbd06cb',1,'Panviva.Sdk.Models.V3.Shared.BaseEntity.DateModified()']]],
+  ['description_614',['Description',['../class_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_shared_1_1_resource.html#a731754ff02a0344e8bc93a6763cc2e54',1,'Panviva.Sdk.Models.V3.Shared.Resource.Description()'],['../class_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_shared_1_1_resource_search_result.html#aaf7fe757c03452e0adf5c2197b4a2f3c',1,'Panviva.Sdk.Models.V3.Shared.ResourceSearchResult.Description()']]]
+];

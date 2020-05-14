@@ -1,0 +1,13 @@
+var class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests =
+[
+    [ "CommandHandlerTests", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#aed945651bb9f38f1ad74718dbbb81cf5", null ],
+    [ "CheckReturnModel_IsCreateArtefactCategoryResultModelWhenCreateArtefactCategoryCommandModel", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#aab0d66fb080bd786c418e8a440f95e9d", null ],
+    [ "CheckReturnModel_IsLiveCshResultModelWhenCreateArtefactCategoryCommandModel", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a0f7a0a895689908f3cf3b900c552b9f5", null ],
+    [ "CheckReturnModel_IsLiveDocumentResultModelWhenCreateLiveDocumentCommandModel", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a3d036cc78258de44c362302fdd0642c3", null ],
+    [ "CheckReturnModel_IsLiveSearchResultModelWhenLiveSearchCommandModel", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a7ffdfa73e85ffa06bf59325a0adddfb7", null ],
+    [ "apiConfigHelper", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a1c0c0c01583e7b3d237d5700b0a65450", null ],
+    [ "configuration", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a1b4a6998e1c31496879ff30a6d9b51d2", null ],
+    [ "inputValidator", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a5b571ad28d3e5f2ffb6ec8a089db2031", null ],
+    [ "mockedPanvivaClient", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#aeb3ef950311f820a3120886435725065", null ],
+    [ "requestUrlConstructor", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#aaaed306f530195e391a91f59fe7b2017", null ]
+];

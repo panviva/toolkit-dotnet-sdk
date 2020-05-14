@@ -1,0 +1,12 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>Artefact</Value>
+      <Value>Artefacts</Value>
+      <Value>Csh</Value>
+      <Value>Href</Value>
+      <Value>Panviva</Value>
+      <Value>Rel</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+</StyleCopSettings>

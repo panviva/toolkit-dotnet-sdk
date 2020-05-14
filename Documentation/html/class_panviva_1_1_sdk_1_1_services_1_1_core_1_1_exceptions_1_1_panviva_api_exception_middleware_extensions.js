@@ -1,0 +1,4 @@
+var class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_panviva_api_exception_middleware_extensions =
+[
+    [ "UsePanvivaExceptionMiddleware", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions_1_1_panviva_api_exception_middleware_extensions.html#a24cd22546879db756179ca9d42d5af3f", null ]
+];

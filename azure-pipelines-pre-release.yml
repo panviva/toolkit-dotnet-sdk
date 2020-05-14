@@ -1,0 +1,97 @@
+# Build pipeline for Panviva.Sdk.Models and Panviva.Sdk.Services.Core
+# The Pipeline will build and publish NuGet Packages to both internal
+# and external fields specified.
+
+trigger:
+- develop
+
+# Versioning of the package
+# $major = major version of the panviva API supported
+# $minor = minor version of the panviva API supported
+# $rev:r = Current built of the patch
+
+name: $(major).$(minor).$(rev:r)
+variables:
+- name: buildConfiguration
+  value: 'Release'
+- name: major
+  value: '3'
+- name: minor
+  value: '4'
+
+stages:
+# Building release and prerelease versions of SDk
+- stage: 'Build'
+  variables:
+    buildConfiguration: 'Release'
+
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    workspace:
+      clean: all
+
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Setup .NET Core SDK'
+      inputs:
+        packageType: sdk
+        version: 2.2.x
+        installationPath: $(Agent.ToolsDirectory)/dotnet
+
+    - task: DotNetCoreCLI@2
+      displayName: "Restoring required NuGet packages"
+      inputs:
+        command: restore
+        projects: '**/*.csproj'
+
+    - task: DotNetCoreCLI@2
+      displayName: "Building solution"
+      inputs:
+        command: build
+        projects: '**/*.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: "Running tests"
+      inputs:
+        command: 'test'
+        projects: '**/*[Tt]ests/*.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Packing NuGet Package - PreRelease Version'
+      inputs:
+        command: 'pack'
+        packagesToPack: '**/*.csproj'
+        packDirectory: '$(Build.ArtifactStagingDirectory)/packages/prereleases'
+        versioningScheme: 'byBuildNumber'
+
+    - publish: '$(Build.ArtifactStagingDirectory)/packages'
+      artifact: 'packages'
+
+# Publishing the built SDKs to Local feed
+- stage: 'PublishPrereleaseNuGetPackage'
+  displayName: 'Publishing PreRelease NuGet Package to Local feed'
+  dependsOn: 'Build'
+  condition: succeeded()
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - checkout: none
+
+    - download: current
+      artifact: 'packages'
+
+    - task: NuGetCommand@2
+      displayName: 'Pushing NuGet Package to local Feed'
+      inputs:
+        command: 'push'
+        packagesToPush: '$(Pipeline.Workspace)/packages/prereleases/*.nupkg'
+        nuGetFeedType: 'internal'
+        publishVstsFeed: 'c87ba5d7-20aa-4a4b-a457-b3608c3e96a3/9ccb0e06-1959-41a6-a2a5-e954a8a19e41'

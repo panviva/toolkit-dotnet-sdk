@@ -1,0 +1,443 @@
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Introduction}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md1}
+\DoxyHorRuler{0}
+
+
+This is a simple .Net Core library provided by \href{https://www.panviva.com/}{\texttt{ Panviva Pty. Ltd.}} to help use \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+P\+Is reliably and easily in a .Net Core developer environment.
+
+This is the Base Repository of \mbox{\hyperlink{namespace_panviva_1_1_sdk}{Panviva.\+Sdk}} which includes
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_models}{Panviva.\+Sdk.\+Models}}
+\item \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core}{Panviva.\+Sdk.\+Services.\+Core}}
+\end{DoxyItemize}
+
+~\newline
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md2}{}\doxysection{Package Status}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md2}
+~\newline
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Package }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Build Status }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Downloads }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Package }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Build Status }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Downloads }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version  }\\\cline{1-4}
+\endhead
+\mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_models}{Panviva.\+Sdk.\+Models}} &\PBS\centering \href{https://panviva-vsts.visualstudio.com/tech-accelerator/_build/latest?definitionId=271&branchName=master}{\texttt{ }} &\PBS\centering  &\PBS\centering   \\\cline{1-4}
+\mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core}{Panviva.\+Sdk.\+Services.\+Core}} &\PBS\centering \href{https://panviva-vsts.visualstudio.com/tech-accelerator/_build/latest?definitionId=271&branchName=master}{\texttt{ }} &\PBS\centering  &\PBS\centering   \\\cline{1-4}
+\end{longtabu}
+
+
+~\newline
+~\newline
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Setup For Panviva.\+S\+D\+K in a .\+Net core Environment}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md3}
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{Prerequisites}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item \mbox{[}Get panviva api sdk\mbox{]}(T\+O\+DO)
+\end{DoxyItemize}\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{Setting up .\+Net Core project}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Import necessary using statements.
+
+\`{}\`{}\`{}c\# 
+\end{DoxyEnumerate}\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md6}{}\doxysection{Version 3 Example}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md6}
+using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_get}{Panviva.\+Sdk.\+Models.\+V3.\+Get}}; using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_extensions_1_1_v3}{Panviva.\+Sdk.\+Services.\+Core.\+Extensions.\+V3}}; using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions}{Panviva.\+Sdk.\+Services.\+Core.\+Exceptions}}; \`{}\`{}\`{}
+
+The version of your imports should match the \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI version you intend to use.
+
+For Example if you want to use \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI Version 4 You should replace all the {\ttfamily V3}\textquotesingle{}s with {\ttfamily V4}
+
+\`{}\`{}\`{}c\# \hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md7}{}\doxysection{Version 4 Example}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md7}
+using Panviva.\+Sdk.\+Models.\+V4.\+Get; using Panviva.\+Sdk.\+Services.\+Core.\+Extensions.\+V4; using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions}{Panviva.\+Sdk.\+Services.\+Core.\+Exceptions}}; \`{}\`{}\`{}
+
+
+\begin{DoxyEnumerate}
+\item Add configs to appsettings ( Or you can have runtime configuration which is shown in later in this document ).
+
+\`{}\`{}\`{}json \char`\"{}\+Panviva\+Api\char`\"{}\+: \{ \char`\"{}\+Base\+Url\char`\"{}\+: \char`\"{}https\+://\{something\}.\+panviva.\+com\char`\"{}, \char`\"{}\+Instance\char`\"{}\+: \char`\"{}-\/-\/\+Instance-\/-\/\char`\"{}, \char`\"{}\+Api\+Key\char`\"{}\+: \char`\"{}-\/-\/\+Api key-\/-\/\char`\"{}, \char`\"{}\+Retry\+Count\char`\"{}\+: \char`\"{}-\/-\/\+Retry\+Count-\/-\/\char`\"{} \} \`{}\`{}{\ttfamily  $>$ Note\+: Base Url is optional by default it will be}\href{https://api.panviva.com}{\texttt{ https\+://api.\+panviva.\+com}}\`{}. But if you want to use anything else you can provide it to override default. ~\newline
+ $>$ Note\+: Retry\+Count is optional, If not specified the libry will use the default retry count of {\bfseries{3}}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Add middleware and Service.
+\begin{DoxyItemize}
+\item To Configure method ~\newline
+ \begin{DoxyVerb}```c#
+app.UsePanvivaExceptionMiddleware();
+```
+
+- To ConfigureServices method
+
+```c#
+services.AddPanvivaApis();
+```
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Inject the handlers you want to use.
+
+\`{}\`{}\`{}c\# public My\+Class\+Constructor( I\+Query\+Handler query\+Handler, I\+Command\+Handler command\+Handler ) \{ this.\+query\+Handler = query\+Handler; this.\+command\+Handler = command\+Handler; \} ~\newline
+ \`{}\`{}\`{}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Using Get requests with Query\+Handler
+\begin{DoxyItemize}
+\item First add necessary usings.
+
+\`{}\`{}\`{}c\# using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_handlers_1_1_v3}{Panviva.\+Sdk.\+Services.\+Core.\+Handlers.\+V3}}; using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_query_models_1_1_v3}{Panviva.\+Sdk.\+Services.\+Core.\+Domain.\+Query\+Models.\+V3}}; using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_get}{Panviva.\+Sdk.\+Models.\+V3.\+Get}}; \`{}\`{}\`{} $>$ Note\+: The version of your imports should match the \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI version you intend to use. ~\newline
+ $>$ For Example if you want to use \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI Version 4 You should replace all the {\ttfamily V3}\textquotesingle{}s with {\ttfamily V4}
+\item Use Query Handler to Get Api results \`{}\`{}\`{}c\# Get\+Document\+Query\+Model my\+Query\+Model = new Get\+Document\+Query\+Model \{ id = \char`\"{}123\char`\"{}; \}
+
+Get\+Documet\+Result\+Model my\+Result\+Model = await this.\+queryhandler.\+Handle\+Async(my\+Query\+Model); \`{}\`{}\`{}
+\item If you want to have runtime configuration, Create Api\+Config\+Model with necessary data and pass it to handler.
+
+\`{}\`{}\`{}c\# My\+Runtime\+Config\+Model = new Api\+Config\+Model \{ Base\+Url = \char`\"{}https\+://\{something\}.\+panviva.\+com\char`\"{}, Instance = \char`\"{}-\/-\/\+Instance-\/-\/\char`\"{}, Api\+Key = \char`\"{}-\/-\/\+Api key-\/-\/\char`\"{}, Retry\+Count = null, \}
+
+Get\+Document\+Query\+Model my\+Query\+Model = new Get\+Document\+Query\+Model \{ id = \char`\"{}123\char`\"{}; \}
+
+Get\+Documet\+Result\+Model my\+Result\+Model = await this.\+queryhandler.\+Handle\+Async(my\+Query\+Model, My\+Runtime\+Config\+Model); \`{}\`{}{\ttfamily  $>$ Note\+: Base Url is optional by default it will be}\href{https://api.panviva.com}{\texttt{ https\+://api.\+panviva.\+com}}\`{}. But if you want to use anything else you can provide it to overide default. ~\newline
+ $>$ Note\+: Retry\+Count is optional, If not specified the libry will use the default retry count of {\bfseries{3}}
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Using Post requests with Command\+Handler
+\begin{DoxyItemize}
+\item First add necessary usings.
+
+\`{}\`{}\`{}c\# using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_handlers_1_1_v3}{Panviva.\+Sdk.\+Services.\+Core.\+Handlers.\+V3}}; using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_command_models_1_1_v3}{Panviva.\+Sdk.\+Services.\+Core.\+Domain.\+Command\+Models.\+V3}}; using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_models_1_1_v3_1_1_get}{Panviva.\+Sdk.\+Models.\+V3.\+Get}}; \`{}\`{}\`{} $>$ Note\+: The version of your imports should match the \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI version you intend to use. ~\newline
+ $>$ For Example if you want to use \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI Version 4 You should replace all the {\ttfamily V3}\textquotesingle{}s with {\ttfamily V4}
+\item Use Query Handler to Get Api results \`{}\`{}\`{}c\# Live\+Search\+Command\+Model my\+Command\+Model = new Live\+Search\+Command\+Model \{ User\+Name = \char`\"{}smaple\+Name\char`\"{}, Query = \char`\"{}\+Sample\+Query\char`\"{}, Maximize\+Client = true, Show\+First\+Result = true, \};
+
+Live\+Search\+Result\+Model is\+Success = await this.\+command\+Handler.\+Handle\+Async(my\+Command\+Model); \`{}\`{}\`{}
+\item If you want to have runtime configuration, Create Api\+Config\+Model with necessary data and pass it to handler. \`{}\`{}\`{}c\# My\+Runtime\+Config\+Model = new Api\+Config\+Model \{ Base\+Url = \char`\"{}https\+://\{something\}.\+panviva.\+com\char`\"{}, Instance = \char`\"{}-\/-\/\+Instance-\/-\/\char`\"{}, Api\+Key = \char`\"{}-\/-\/\+Api key-\/-\/\char`\"{}, Retry\+Count = null, \}
+
+Live\+Search\+Command\+Model my\+Command\+Model = new Live\+Search\+Command\+Model \{ User\+Name = \char`\"{}smaple\+Name\char`\"{}, Query = \char`\"{}\+Sample\+Query\char`\"{}, Maximize\+Client = true, Show\+First\+Result = true, \};
+
+Live\+Search\+Result\+Model is\+Success = await this.\+command\+Handler. Handle\+Async(my\+Command\+Model, My\+Runtime\+Config\+Model); \`{}\`{}\`{} ~\newline
+
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md8}{}\doxysubsubsection{Handling Exception thrown by S\+D\+K.}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md8}
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md9}{}\doxysubsubsection{Exceptions}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Query\+Model\+Exception ~\newline
+ {\ttfamily Throws when Query Model fails to pass validations} $>$ Note \+: validation logic is diffrent for each model
+\item Failed\+Api\+Request\+Exception ~\newline
+ {\ttfamily Throws when Http request to \mbox{\hyperlink{namespace_panviva}{Panviva}} returns non-\/success result} $>$ Note \+: Error code is same as what is received from \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+P\+Is
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item Import necessary using to get Exception classes.
+
+\`{}\`{}\`{}c\# using \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_exceptions}{Panviva.\+Sdk.\+Services.\+Core.\+Exceptions}}; \`{}\`{}\`{}
+\item Example exception handling \`{}\`{}\`{}c\# try \{ var my\+Result\+Model = await queryhandler.\+Handle\+Asyn(\+Query\+Model); \} catch(\+Query\+Model\+Exception ex) \{ // When Query model validation fails. Console.\+Write\+Line(ex); throw; \} catch(\+Failed\+Api\+Request\+Exception ex) \{ // When \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+PI results in a error. Console.\+Write\+Line(ex); throw; \} ~\newline
+ \`{}\`{}\`{}
+\end{DoxyEnumerate}\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md10}{}\doxysection{Library Architecture}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md10}
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md11}{}\doxysubsubsection{Overall Architecture}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md11}
+\DoxyHorRuler{0}
+
+
+ \DoxyHorRuler{0}
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{Query\+Handler flow}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md12}
+~\newline
+
+
+ \DoxyHorRuler{0}
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{Command\+Handler flow}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md13}
+~\newline
+
+
+ \DoxyHorRuler{0}
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{Folder Architecture}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md14}
+~\newline
+
+
+ \DoxyHorRuler{0}
+\hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md15}{}\doxysection{Query\+Model Attributes}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md15}
+~\newline
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{0}{|X[-1]}|}
+\hline
+\end{longtabu}
+
+
+Model Name 
+
+Attribute Name 
+
+Attribute Type 
+
+Description  $<$/thead$>$ $<$tbody$>$ 
+
+Get\+Artefact\+Query\+Model 
+
+id 
+
+string 
+
+The id (ID) of an artefact  
+
+Get\+Container\+Query\+Model 
+
+id 
+
+string 
+
+The id of a document container  
+
+Get\+Document\+Query\+Model 
+
+id 
+
+string 
+
+A document unique identifier, Document ID  
+
+version (optional) 
+
+integer 
+
+Request the A\+PI to return a particular version of the specified document  
+
+Get\+Document\+Container\+Relationships\+Query\+Model 
+
+id 
+
+integer 
+
+The internal id (I\+ID) of a \mbox{\hyperlink{namespace_panviva}{Panviva}} document  
+
+Get\+Document\+Container\+Query\+Model 
+
+id 
+
+integer 
+
+The internal id (I\+ID) of a \mbox{\hyperlink{namespace_panviva}{Panviva}} document  
+
+Get\+Document\+Translations\+Query\+Model 
+
+id 
+
+integer 
+
+The internal id (I\+ID) of a \mbox{\hyperlink{namespace_panviva}{Panviva}} document  
+
+Get\+File\+Query\+Model 
+
+id 
+
+integer 
+
+The internal id (I\+ID) of a \mbox{\hyperlink{namespace_panviva}{Panviva}} file (external document)  
+
+Get\+Folder\+Query\+Model 
+
+id 
+
+integer 
+
+The internal id (I\+ID) of a \mbox{\hyperlink{namespace_panviva}{Panviva}} document  
+
+Get\+Folder\+Children\+Query\+Model 
+
+id 
+
+integer 
+
+The internal id (I\+ID) of a \mbox{\hyperlink{namespace_panviva}{Panviva}} document  
+
+Get\+Folder\+Root\+Query\+Model 
+
+None  
+
+Get\+Image\+Query\+Model 
+
+id 
+
+integer 
+
+The id of a \mbox{\hyperlink{namespace_panviva}{Panviva}} image  
+
+Get\+Search\+Query\+Model 
+
+term 
+
+string 
+
+The word or phrase to be searched for  
+
+page\+Offset (optional) 
+
+integer 
+
+The pagination offset to denote the number of initial search results to skip. For example, page\+Offset of 100 and page\+Limit of 10 would return records 101-\/110  
+
+page\+Limit (optional) 
+
+integer 
+
+The number of records to return. Must be an integer between 0 and 1000  
+
+Get\+Search\+Artefact\+Query\+Model 
+
+simplequery (optional) 
+
+string 
+
+Natural language query string. For example\+: {\ttfamily Action Movies}. (Note\+: Use simplequery OR advancedquery, not both.)  
+
+advancedquery (optional) 
+
+string 
+
+Query string written in Lucene query syntax. For example\+: {\ttfamily films A\+ND \char`\"{}a story\char`\"{}}. (Note\+: Use simplequery OR advancedquery, not both.)  
+
+filter (optional) 
+
+string 
+
+Accepts a Lucene-\/formatted filter string. Examples\+: category eq \textquotesingle{}Mortgages\textquotesingle{}, panviva\+Document\+Version gt \textquotesingle{}8\textquotesingle{}. (Filterable fields include date\+Created, date\+Modified, date\+Deleted, category\+Json, query\+Variations\+Json, title, category, primary\+Query, is\+Deleted, timestamp, panviva\+Document\+Id, panviva\+Document\+Version, id)  
+
+channel (optional) 
+
+string 
+
+Return response for a specific channel, instead of the default  
+
+page\+Offset (optional) 
+
+integer 
+
+The pagination offset to denote the number of initial search results to skip. For example, page\+Offset of 100 and page\+Limit of 10 would return records 101-\/110  
+
+page\+Limit (optional) 
+
+integer 
+
+The number of records to return. Must be an integer between 0 and 1000  $<$/tbody$>$ \hypertarget{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md16}{}\doxysection{Command\+Model Attributes}\label{md__c_1__users_cshehan_source_public-repo-panviva_panviva-sdk-dotnet__r_e_a_d_m_e_autotoc_md16}
+~\newline
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{0}{|X[-1]}|}
+\hline
+\end{longtabu}
+
+
+Model Name 
+
+Attribute Name 
+
+Attribute Type 
+
+Description  $<$/thead$>$ $<$tbody$>$ 
+
+Create\+Artefact\+Category\+Command\+Model 
+
+name 
+
+string 
+
+The name of the new category  
+
+Live\+Csh\+Command\+Model 
+
+user\+Name 
+
+string 
+
+The \mbox{\hyperlink{namespace_panviva}{Panviva}} user to whom you wish to send the result. (Note\+: Use username OR user\+Id, not both.)  
+
+user\+Id 
+
+string 
+
+The numeric ID of the user to whom you wish to send the result. (Note\+: Use username OR user\+Id, not both.)  
+
+query 
+
+string 
+
+The C\+SH term to search for  
+
+show\+First\+Result (optional) 
+
+bool 
+
+True to immediately open the first document found, or false to show the list of results  
+
+maximize\+Client (optional) 
+
+bool 
+
+True/\+False depending on whether you want the \mbox{\hyperlink{namespace_panviva}{Panviva}} client to maximize on the user\textquotesingle{}s desktop, when the document is delivered  
+
+Live\+Document\+Model 
+
+user\+Name 
+
+string 
+
+The \mbox{\hyperlink{namespace_panviva}{Panviva}} user to whom you wish to send the result. (Note\+: Use username OR user\+Id, not both.)  
+
+user\+Id 
+
+string 
+
+The numeric ID of the user to whom you wish to send the result. (Note\+: Use username OR user\+Id, not both.)  
+
+id 
+
+string 
+
+The Document ID of the \mbox{\hyperlink{namespace_panviva}{Panviva}} Document you wish to send  
+
+location (optional) 
+
+string 
+
+The Section ID you would like the user to see, when the specified document is opened  
+
+maximize\+Client (optional) 
+
+bool 
+
+True/\+False depending on whether you want the \mbox{\hyperlink{namespace_panviva}{Panviva}} client to maximize on the user\textquotesingle{}s desktop, when the document is delivered  
+
+Live\+Search\+Command\+Model 
+
+user\+Name 
+
+string 
+
+The \mbox{\hyperlink{namespace_panviva}{Panviva}} user to whom you wish to send the result. (Note\+: Use username OR user\+Id, not both.)  
+
+user\+Id 
+
+string 
+
+The numeric ID of the user to whom you wish to send the result. (Note\+: Use username OR user\+Id, not both.)  
+
+query 
+
+string 
+
+The term to search for  
+
+show\+First\+Result (optional) 
+
+bool 
+
+True to immediately open the first document found, or false to show the list of results  
+
+maximize\+Client (optional) 
+
+bool 
+
+True/\+False depending on whether you want the \mbox{\hyperlink{namespace_panviva}{Panviva}} client to maximize on the user\textquotesingle{}s desktop, when the document is delivered  $<$/tbody$>$ 

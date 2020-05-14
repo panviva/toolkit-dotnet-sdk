@@ -1,0 +1,11 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>Api</Value>
+      <Value>artefact</Value>
+      <Value>Artefact</Value>
+      <Value>Artefacts</Value>
+      <Value>Panviva</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+</StyleCopSettings>

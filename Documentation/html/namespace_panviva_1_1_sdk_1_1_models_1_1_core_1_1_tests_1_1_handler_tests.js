@@ -1,0 +1,5 @@
+var namespace_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests =
+[
+    [ "CommandHandlerTests", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests" ],
+    [ "QueryHandlerTests", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_query_handler_tests.html", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_query_handler_tests" ]
+];

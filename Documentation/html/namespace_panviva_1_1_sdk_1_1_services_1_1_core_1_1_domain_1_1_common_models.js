@@ -1,0 +1,5 @@
+var namespace_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_common_models =
+[
+    [ "ApiConfigModel", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_common_models_1_1_api_config_model.html", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_common_models_1_1_api_config_model" ],
+    [ "DefaultErrorModel", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_common_models_1_1_default_error_model.html", "class_panviva_1_1_sdk_1_1_services_1_1_core_1_1_domain_1_1_common_models_1_1_default_error_model" ]
+];

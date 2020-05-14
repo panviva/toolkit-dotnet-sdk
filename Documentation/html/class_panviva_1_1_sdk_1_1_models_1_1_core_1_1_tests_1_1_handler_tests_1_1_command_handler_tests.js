@@ -1,0 +1,8 @@
+var class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests =
+[
+    [ "CommandHandlerTests", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#ab45870079a47ab6bb377962174f4f65a", null ],
+    [ "CheckReturnModel_IsCreateArtefactCategoryResultModelWhenCreateArtefactCategoryCommandModel", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a624f460097734bcaab66cf1276f9decd", null ],
+    [ "CheckReturnModel_IsLiveCshResultModelWhenCreateArtefactCategoryCommandModel", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#aab5e22119961451249a64990eb4d0358", null ],
+    [ "CheckReturnModel_IsLiveDocumentResultModelWhenCreateLiveDocumentCommandModel", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#aab21723edd221b487f39b176138d10ac", null ],
+    [ "CheckReturnModel_IsLiveSearchResultModelWhenLiveSearchCommandModel", "class_panviva_1_1_sdk_1_1_models_1_1_core_1_1_tests_1_1_handler_tests_1_1_command_handler_tests.html#a0cb4c25d09dd1e2350c887879c6ee3ef", null ]
+];

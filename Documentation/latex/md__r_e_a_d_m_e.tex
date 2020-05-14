@@ -1,0 +1,256 @@
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Introduction}\label{md__r_e_a_d_m_e_autotoc_md1}
+This is a simple .Net Core library provided by \href{https://www.panviva.com/}{\texttt{ Panviva Pty. Ltd.}} to help use \mbox{\hyperlink{namespace_panviva}{Panviva}} A\+P\+Is reliably and easily in a .Net Core developer environment.
+
+This is the Base Repository of \mbox{\hyperlink{namespace_panviva_1_1_sdk}{Panviva.\+Sdk}} which includes
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_models}{Panviva.\+Sdk.\+Models}}
+\item \mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core}{Panviva.\+Sdk.\+Services.\+Core}}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{Status}\label{md__r_e_a_d_m_e_autotoc_md2}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Package }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Build Status }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Downloads }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Package }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Build Status }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Downloads }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Version  }\\\cline{1-4}
+\endhead
+\mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_models}{Panviva.\+Sdk.\+Models}} &\PBS\centering \href{https://panviva-vsts.visualstudio.com/tech-accelerator/_build/latest?definitionId=271&branchName=master}{\texttt{ }} &\PBS\centering  &\PBS\centering   \\\cline{1-4}
+\mbox{\hyperlink{namespace_panviva_1_1_sdk_1_1_services_1_1_core}{Panviva.\+Sdk.\+Services.\+Core}} &\PBS\centering \href{https://panviva-vsts.visualstudio.com/tech-accelerator/_build/latest?definitionId=271&branchName=master}{\texttt{ }} &\PBS\centering  &\PBS\centering   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Prerequisite}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item \mbox{[}Get panviva api sdk\mbox{]}(T\+O\+DO)
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{Setup}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item Import necessary using statements.
+
+\`{}\`{}\`{}c\# \begin{DoxyVerb}using  Panviva.Sdk.Models.V3.Get;
+
+using  Panviva.Sdk.Services.Core.Extensions;
+
+using  Panviva.Sdk.Services.Core.Exceptions
+\end{DoxyVerb}
+
+
+\`{}\`{}\`{}
+\item Add cofigs to appsettings.
+
+\`{}\`{}\`{}json \begin{DoxyVerb}"PanvivaApi": {
+
+"BaseUrl": "--Base Url--",
+
+"ApiVersion": "--Version--",
+
+"Instance": "--Instance--",
+
+"ApiKey": "--Api key--",
+
+"RetryCount": "--RetryCount--"
+
+}
+\end{DoxyVerb}
+
+
+\`{}\`{}\`{}
+\end{DoxyEnumerate}
+
+\begin{quote}
+Note\+: Retry\+Count is optional, If not specified the libry will use the default retry count of {\bfseries{3}} \end{quote}
+
+
+
+\begin{DoxyEnumerate}
+\item Add middleware and Service.
+\begin{DoxyItemize}
+\item To Configure method
+\end{DoxyItemize}
+
+\`{}\`{}\`{}c\# \begin{DoxyVerb}app.UsePanvivaExceptionMiddleware();
+\end{DoxyVerb}
+
+
+\`{}\`{}\`{}
+\begin{DoxyItemize}
+\item To Configure\+Services method
+\end{DoxyItemize}
+
+\`{}\`{}\`{}c\# \begin{DoxyVerb}services.AddPanvivaApis();
+\end{DoxyVerb}
+
+
+\`{}\`{}\`{}
+\item Inject the handlers you want to use.
+
+\`{}\`{}\`{}c\# \begin{DoxyVerb}public MyClassConstructor(IQueryHandler queryHandler, ICommandHandler commandHandler)
+{
+    this.queryHandler = queryHandler;
+    this.commandHandler = commandHandler;
+}
+\end{DoxyVerb}
+ \`{}\`{}\`{}
+\item Using Get requests with Query\+Handler
+\begin{DoxyItemize}
+\item First add necessary usings.
+\end{DoxyItemize}
+
+\`{}\`{}\`{}c\# \begin{DoxyVerb}using Panviva.Sdk.Services.Core.Handlers.V3;
+using Panviva.Sdk.Services.Core.Domain.QueryModels.V3;
+\end{DoxyVerb}
+
+
+\`{}\`{}\`{}
+\begin{DoxyItemize}
+\item Use Query Handler to Get Api results \`{}\`{}\`{}c\# \begin{DoxyVerb}GetDocumentQueryModel myQueryModel = new GetDocumentQueryModel 
+{
+    id = "123";
+} 
+
+GetDocumetResultModel myResultModel = await this.queryhandler.HandleAsync(myQueryModel);
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+
+\`{}\`{}\`{}
+\item Using Post requests with Command\+Handler
+\begin{DoxyItemize}
+\item First add necessary usings.
+\end{DoxyItemize}
+
+\`{}\`{}\`{}c\# \begin{DoxyVerb}using Panviva.Sdk.Services.Core.Handlers.V3;
+using Panviva.Sdk.Services.Core.Domain.CommandModels.V3;
+\end{DoxyVerb}
+
+
+\`{}\`{}\`{}
+\begin{DoxyItemize}
+\item Use Query Handler to Get Api results \`{}\`{}\`{}c\# \begin{DoxyVerb}LiveSearchCommandModel myCommandModel = new LiveSearchCommandModel 
+{
+    UserName = "smapleName",
+    Query = "SampleQuery",
+    MaximizeClient = true,
+    ShowFirstResult = true,
+} 
+
+LiveSearchResultModel isSuccess = await this.commandHandler.HandleAsync(myCommandModel);
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+
+\`{}\`{}\`{}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Query\+Model Attributes}\label{md__r_e_a_d_m_e_autotoc_md5}
+{\bfseries{Get\+Artefact\+Query\+Model}} \begin{DoxyVerb}- id : integer (*The id (ID) of an artefact*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Container\+Query\+Model}} \begin{DoxyVerb}- id : string : (*The id of a document container*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Document\+Query\+Model}} \begin{DoxyVerb}- id : string : (*A document unique identifier, Document ID*)
+
+- version (optional) : integer (*Request the API to return a particular version of the specified document.*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Document\+Container\+Relationships\+Query\+Model}} \begin{DoxyVerb}- id : integer : (*The internal id (IID) of a Panviva document*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Document\+Container\+Query\+Model}} \begin{DoxyVerb}- id : integer : (*The internal id (IID) of a Panviva document*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Document\+Translations\+Query\+Model}} \begin{DoxyVerb}- id : integer : (*The internal id (IID) of a Panviva document*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+File\+Query\+Model}} \begin{DoxyVerb}- id : integer : (The internal id (IID) of a Panviva file (external document)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Folder\+Query\+Model}} \begin{DoxyVerb}- id : integer : (*The internal id (IID) of a Panviva folder*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Folder\+Children\+Query\+Model}} \begin{DoxyVerb}- id : integer : (*The internal id (IID) of a Panviva folder*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Folder\+Root\+Query\+Model}} \begin{DoxyVerb}- None
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Folder\+Translations\+Query\+Model}} \begin{DoxyVerb}- id : integer : (*The internal id (IID) of a Panviva folder*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Artefact\+Category\+Query\+Model}} \begin{DoxyVerb}- None
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Image\+Query\+Model}} \begin{DoxyVerb}- id : integer : (*The id of a Panviva image*)
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Search\+Query\+Model}} \begin{DoxyVerb}- term : string : (*The word or phrase to be searched for.*)
+
+- pageOffset (optional) : integer : The pagination offset to denote the number of initial search results to skip. For example, pageOffset of 100 and pageLimit of 10 would return records 101-110.
+
+- pageLimit (optional) : integer : The number of records to return. Must be an integer between 0 and 1000.
+\end{DoxyVerb}
+
+
+{\bfseries{Get\+Search\+Artefact\+Query\+Model}} \begin{DoxyVerb}- simplequery (optional ) : string: (*Natural language query string. For example: `Action Movies`. (Note: Use simplequery OR advancedquery, not both.)*)
+
+- advancedquery (optional ) : string: (*Query string written in Lucene query syntax. For example: `films AND "a story"`. (Note: Use simplequery OR advancedquery, not both.)*)
+
+- channel (optional ) : string: (*Return response for a specific channel, instead of the default*)
+
+- pageOffset (optional) : integer : The pagination offset to denote the number of initial search results to skip. For example, pageOffset of 100 and pageLimit of 10 would return records 101-110.
+
+- pageLimit (optional) : integer : The number of records to return. Must be an integer between 0 and 1000.
+\end{DoxyVerb}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{Command\+Model Attributes}\label{md__r_e_a_d_m_e_autotoc_md6}
+{\bfseries{Create\+Artefact\+Category\+Command\+Model}} \begin{DoxyVerb}- name : string :  (*The name of the new category.*)
+\end{DoxyVerb}
+
+
+{\bfseries{Live\+Csh\+Command\+Model}} \begin{DoxyVerb}- userName : string :  (*The Panviva user to whom you wish to send the result. (Note: Use username OR userId, not both.*))
+
+- userId : string :  (*The numeric ID of the user to whom you wish to send the result. (Note: Use username OR userId, not both.*))
+
+- query: string :  (*The CSH term to search for.*)
+
+- showFirstResult : bool:  (*True to immediately open the first document found, or false to show the list of results*)
+
+- maximizeClient : bool:  (*True/False depending on whether you want the Panviva client to maximize on the user's desktop, when the document is delivered.*)
+\end{DoxyVerb}
+
+
+{\bfseries{Live\+Document\+Model}} \begin{DoxyVerb}- userName : string :  (*The Panviva user to whom you wish to send the result. (Note: Use username OR userId, not both.*))
+
+- userId : string :  (*The numeric ID of the user to whom you wish to send the result. (Note: Use username OR userId, not both.*))
+
+- id: string :  (*The Document ID of the Panviva Document you wish to send.*)
+
+- location : string:  (*The Section ID you would like the user to see, when the specified document is opened.*)
+
+- maximizeClient : bool:  (*True/False depending on whether you want the Panviva client to maximize on the user's desktop, when the document is delivered.*)
+\end{DoxyVerb}
+
+
+{\bfseries{Live\+Search\+Command\+Model}} \begin{DoxyVerb}- userName : string :  (*The Panviva user to whom you wish to send the result. (Note: Use username OR userId, not both.*))
+
+- userId : string :  (*The numeric ID of the user to whom you wish to send the result. (Note: Use username OR userId, not both.*))
+
+- query: string :  (*The term to search for.*)
+
+- showFirstResult : bool:  (*True to immediately open the first document found, or false to show the list of results*)
+
+- maximizeClient : bool:  (*True/False depending on whether you want the Panviva client to maximize on the user's desktop, when the document is delivered.*)
+\end{DoxyVerb}
+ 
