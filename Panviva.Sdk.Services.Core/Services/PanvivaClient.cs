@@ -1,47 +1,55 @@
-﻿using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Panviva.Sdk.Services.Core.Domain.CommonModels;
-using Panviva.Sdk.Services.Core.Exceptions;
-using Panviva.Sdk.Services.Core.Utilities;
-using Polly;
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="PanvivaClient.cs" company="Panviva">
+// Licensed under the MIT License.
+// </copyright>
 
 namespace Panviva.Sdk.Services.Core.Services
 {
+    using System;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.Extensions.Configuration;
+    using Newtonsoft.Json;
+    using Panviva.Sdk.Services.Core.Domain.CommonModels;
+    using Panviva.Sdk.Services.Core.Exceptions;
+    using Panviva.Sdk.Services.Core.Utilities;
+    using Polly;
 
     /// <summary>Class contains the API call functions.</summary>
     /// <seealso cref="Panviva.Sdk.Services.Core.Services.IPanvivaClient" />
     public class PanvivaClient : IPanvivaClient
     {
 
-        private readonly HttpClient _client;
+        private readonly HttpClient client;
 
+        /// <summary>Initializes a new instance of the <see cref="PanvivaClient" /> class.</summary>
+        /// <param name="client">The client.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="inputValidator">The input validator.</param>
         public PanvivaClient(HttpClient client, IConfiguration configuration, InputValidator inputValidator)
         {
-            _client = client;
+            this.client = client;
         }
 
-        /// <summary>
-        /// Calls the GET endpoints on Panviva's public facing APIs and parses the result to a specified type
-        /// </summary>
-        /// <typeparam name="TResult"></typeparam>
-        /// <param name="queryUrl"></param>
-        /// <param name="apiKey"></param>
-        /// <param name="retryCount"></param>
-        /// <returns></returns>
+        /// <summary>Calls the panviva API.</summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="queryUrl">The query URL.</param>
+        /// <param name="apiKey">The Api key.</param>
+        /// <param name="retryCount">The retry count.</param>
+        /// <returns>The result Model.</returns>
         public async Task<TResult> GetFromPanvivaApi<TResult>(string queryUrl, string apiKey, int retryCount)
         {
-            // Add key for the request.
-            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
+            // clear headers.
+            this.client.DefaultRequestHeaders.Clear();
 
-            _client.DefaultRequestHeaders.Add("Accept", "application/json");
+            // Add key for the request.
+            this.client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
+
+            this.client.DefaultRequestHeaders.Add("Accept", "application/json");
 
             var response = await Policy.HandleResult<HttpResponseMessage>(message => !message.IsSuccessStatusCode)
                 .WaitAndRetryAsync(retryCount, attempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, attempt), 30)))
-                .ExecuteAsync(() => _client.GetAsync(queryUrl));
+                .ExecuteAsync(() => client.GetAsync(queryUrl));
 
             if (!response.IsSuccessStatusCode)
             {
@@ -59,15 +67,13 @@ namespace Panviva.Sdk.Services.Core.Services
             return returnObject;
         }
 
-        /// <summary>
-        /// This method calls Panviva's public POST apis and parses the result into a specified data type
-        /// </summary>
-        /// <typeparam name="TResult"></typeparam>
-        /// <param name="queryUrl"></param>
-        /// <param name="apiKey"></param>
-        /// <param name="requestBody"></param>
-        /// <param name="retryCount"></param>
-        /// <returns></returns>
+        /// <summary>Gets the panviva API response.</summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="queryUrl">The query URL.</param>
+        /// <param name="apiKey">The Api key.</param>
+        /// <param name="requestBody">The request body.</param>
+        /// <param name="retryCount">The retry count.</param>
+        /// <returns>True if successful.</returns>
         public async Task<TResult> PostToPanvivaApi<TResult>(string queryUrl, string apiKey, object requestBody, int retryCount)
         {
             // Content variable for post request.
@@ -83,12 +89,15 @@ namespace Panviva.Sdk.Services.Core.Services
                 throw new FailedApiRequestException(Utilities.Constants.StatusCodeForInvalidModel, "Failed to convert request body to a json string.");
             }
 
+            // clear headers.
+            this.client.DefaultRequestHeaders.Clear();
+
             // Add key for the request.
-            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
+            this.client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
 
             var response = await Policy.HandleResult<HttpResponseMessage>(message => !message.IsSuccessStatusCode)
                 .WaitAndRetryAsync(retryCount, attempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, attempt), 30)))
-                .ExecuteAsync(() => _client.PostAsync(queryUrl, content));
+                .ExecuteAsync(() => this.client.PostAsync(queryUrl, content));
 
             if (!response.IsSuccessStatusCode)
             {
