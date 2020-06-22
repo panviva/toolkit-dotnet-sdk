@@ -1,17 +1,15 @@
-﻿// <copyright file="DefaultErrorModel.cs" company="Panviva">
-// Licensed under the MIT License.
-// </copyright>
+﻿using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace Panviva.Sdk.Services.Core.Domain.CommonModels
 {
-    using Newtonsoft.Json;
-
-    /// <summary>Default Error Model.</summary>
     internal class DefaultErrorModel
     {
-        /// <summary>Gets or sets the message.</summary>
-        /// <value>The message.</value>
-        [JsonProperty("message")]
+        public bool HasErrors => Errors?.Count() > 0;
+
         internal string Message { get; set; }
+
+        public IEnumerable<string> Errors { get; set; }
     }
 }
