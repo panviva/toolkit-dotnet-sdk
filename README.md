@@ -87,7 +87,7 @@ This is the Base Repository of Panviva.Sdk which includes
             Id = "123"
         } 
             
-        GetDocumetResultModel resultModel = await _queryHandler.HandleAsync(queryModel);
+        GetDocumentResultModel resultModel = await _queryHandler.HandleAsync(queryModel);
         ```
 
     - If you want to have runtime configuration, Create ApiConfigModel with necessary data and pass it to handler.
@@ -106,7 +106,7 @@ This is the Base Repository of Panviva.Sdk which includes
             Id = "123";
         } 
             
-        GetDocumetResultModel resultModel = await _queryHandler.HandleAsync(queryModel, runtimeConfigModel);
+	GetDocumetResultModel resultModel = await _queryHandler.HandleAsync(queryModel, runtimeConfigModel);
         ```
         > Note: Base Url is optional by default it will be `https://api.panviva.com`. You can provide a value to override the default. RetryCount is optional, If not specified the libary will use the default retry count of **3**
 
@@ -180,7 +180,7 @@ This is the Base Repository of Panviva.Sdk which includes
     ```c#
     try 
     {
-        var resultModel = await queryHandler.HandleAsyn(queryModel);
+        var resultModel = await _queryHandler.HandleAsync(queryModel);
     }
     catch(QueryModelException ex)
     {
