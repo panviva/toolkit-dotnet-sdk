@@ -59,6 +59,9 @@ This is the Base Repository of Panviva.Sdk which includes
 1. Inject the handlers you want to use.
 
 	```c#
+	private readonly IQueryHandler _queryHandler;
+	private readonly ICommandHandler _commandHandler;
+	
 	public MyClassConstructor(IQueryHandler queryHandler, ICommandHandler commandHandler)
 	{
 		_queryHandler = queryHandler;
@@ -81,7 +84,7 @@ This is the Base Repository of Panviva.Sdk which includes
         ```c#
         GetDocumentQueryModel queryModel = new GetDocumentQueryModel 
         {
-            Id = "123";
+            Id = "123"
         } 
             
         GetDocumetResultModel resultModel = await _queryhandler.HandleAsync(queryModel);
