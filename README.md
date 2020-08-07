@@ -1,7 +1,9 @@
-# Panviva.Sdk
+# Panviva SDK
 
-## Introduction
-This is a simple .Net Core library provided by [Panviva Pty. Ltd.](https://www.panviva.com/) to help use Panviva APIs reliably and easily in a .Net Core developer environment.
+## **Introduction**
+Wouldn't it be great if you could share information seamlessly? This .Net Core library allows you to push your knowledge further and consume a complete list of Panviva's API offerings within your application.
+
+This is a simple .Net Core library provided by [Panviva](https://www.panviva.com/) to help use Panviva APIs reliably and easily in a .Net Core developer environment.
 
 This is the Base Repository of Panviva.Sdk which includes
 - Panviva.Sdk.Models
@@ -13,10 +15,35 @@ This is the Base Repository of Panviva.Sdk which includes
 |:-----------|:-----------:|:-----------:|
 | Panviva.Sdk.Models |  ![Nuget](https://img.shields.io/nuget/dt/Panviva.Sdk.Models) | ![Nuget](https://img.shields.io/nuget/v/Panviva.Sdk.Models?label=Panviva.Sdk.Models) |
 | Panviva.Sdk.Services.Core | ![Nuget](https://img.shields.io/nuget/dt/Panviva.Sdk.Services.Core) | ![Nuget](https://img.shields.io/nuget/v/Panviva.Sdk.Services.Core?label=Panviva.Sdk.Services.Core) |
-  
 
-# Setup For Panviva.SDK in a .Net core Environment
-### Prerequisites
+## **Prerequisites**
+
+### To use the Panviva SDK, you must have:
+
+1. Access to a Panviva instance (also known as a tenant)
+2. A developer account on the Panviva developer portal ([dev.panviva.com](https://dev.panviva.com))
+3. An active Panviva API subscription (also known as an API plan) and valid Panviva API credentials
+
+If you are not a customer or need help visit [www.panviva.com/support](https://www.panviva.com/support).
+
+### How to get credentials
+
+Follow the steps below to get your API key & instance name.
+
+To get your API key you must:
+
+1. Sign into the Panviva developer portal at [dev.panviva.com](https://dev.panviva.com)
+2. Navigate to your profile (click your name then click "Profile" from the top navigation bar)
+3. Your should now see your API key under "Your Subscriptions" section of your profile.
+
+To get your instance name you must:
+
+1. Sign into the Panviva developer portal at [dev.panviva.com](https://dev.panviva.com)
+2. Navigate to your API (click "APIs" from the top navigation bar)
+3. You should now see your API instance under your API suite (look for "_The instance name for the API Suite is_")
+
+# Installation
+## Setup For Panviva.SDK in a .Net core Environment
 - Get Panviva SDK response models library package from [here](https://www.nuget.org/packages/Panviva.Sdk.Models/).
 - Get Panviva SDK .Net Core NuGet package from [here](https://www.nuget.org/packages/Panviva.Sdk.Services.Core/).
     > Note : Instructions on how to install NuGet packages can be found [here](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio).
