@@ -15,20 +15,35 @@ namespace Panviva.Sdk.Services.Core.Services
     {
         private readonly HttpClient _client;
 
-        public PanvivaClient(HttpClient client)
+        public PanvivaClient(HttpClient httpClient)
         {
-            _client = client;
+            _client = httpClient;
         }
 
         public async Task<TResult> GetFromPanvivaApi<TResult>(string queryUrl, string apiKey, int retryCount)
         {
             _client.DefaultRequestHeaders.Clear();
-            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
-            _client.DefaultRequestHeaders.Add("Accept", "application/json");
+
 
             var response = await Policy.HandleResult<HttpResponseMessage>(message => !message.IsSuccessStatusCode)
                 .WaitAndRetryAsync(retryCount, attempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, attempt), 30)))
-                .ExecuteAsync(() => _client.GetAsync(queryUrl));
+                .ExecuteAsync(() =>
+                {
+                    // NOTE : request object creation logic is moved here to prevent using same model in retry policy.
+
+                    // create request object
+                    var request = new HttpRequestMessage
+                    {
+                        RequestUri = new Uri(queryUrl),
+                        Method = HttpMethod.Get
+                    };
+
+                    // add headers
+                    request.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
+                    request.Headers.Add("Accept", "application/json");
+
+                    return _client.SendAsync(request);
+                });
 
             if (!response.IsSuccessStatusCode)
             {
@@ -73,11 +88,26 @@ namespace Panviva.Sdk.Services.Core.Services
             }
 
             _client.DefaultRequestHeaders.Clear();
-            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
 
             var response = await Policy.HandleResult<HttpResponseMessage>(message => !message.IsSuccessStatusCode)
                 .WaitAndRetryAsync(retryCount, attempt => TimeSpan.FromSeconds(Math.Min(Math.Pow(2, attempt), 30)))
-                .ExecuteAsync(() => _client.PostAsync(queryUrl, content));
+                .ExecuteAsync(() =>
+                {
+                    // NOTE : request object creation logic is moved here to prevent using same model in retry policy.
+
+                    // create request object
+                    var request = new HttpRequestMessage
+                    {
+                        RequestUri = new Uri(queryUrl),
+                        Content = content,
+                        Method = HttpMethod.Post
+                    };
+
+                    // add headers
+                    request.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
+
+                    return _client.SendAsync(request);
+                });
 
             if (!response.IsSuccessStatusCode)
             {
