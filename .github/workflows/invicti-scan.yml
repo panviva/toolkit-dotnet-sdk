@@ -1,0 +1,57 @@
+# Define all 43 repositories from your organization
+$REPOS = @(
+  "upland-panviva-helm", "upland-panviva-core", "upland-panviva-adr", "pva-cloudops-harness",
+  "mx-design-prototype", "claude-learning-system", "sidekick-data-gen", "sidekick-report-generator",
+  "dododesk", "panviva-core-xml-converter", "panviva-admin", "pva-cloudops-misc", "DodoCostPanviva",
+  "panviva-mcp-remote-copilotstudio", "panviva-context", "pv-ai-skillforge", "skillforge-plugin",
+  "upland-marketplace", "datalake-dedup", "pv-ai-site-assistant-bot", "pv-ai-feedback-portal",
+  "QA-AI-Coverage-Gap-and-Impact-Assessment-Tool", "pv-ai-impact-analysis-tool", "pv-ai-ms-graph-mcp",
+  "upland-dictation", "pv-ai-incident-analysis", "panviva-services-mcp-server", "panviva-docs",
+  "PowerPlatformConnectors", "toolkit-node-sdk", "toolkit-dotnet-sdk", "accelerator-crm-salesforce",
+  "samples-node", "samples-dotnet", "developer-pro-tips", "accelerator-integration-swagger",
+  "samples-python", "toolkit-php-sdk", "toolkit-python-sdk", "samples-nextjs-dashboard",
+  "samples-web-blazor-events", "samples-universalwindowsapps-kiosk", "accelerator-bots-azure-bot-framework-v4"
+)
+
+foreach ($REPO in $REPOS) {
+    Write-Host "------------------------------------------------" -ForegroundColor Cyan
+    Write-Host "🔄 Starting integration for: panviva/$REPO"
+    Write-Host "------------------------------------------------" -ForegroundColor Cyan
+
+    # 1. Clone the repository into our safe user workspace folder
+    gh repo clone "panviva/$REPO"
+    if (-not $?) {
+        Write-Host "❌ Failed to clone $REPO. Skipping..." -ForegroundColor Red
+        continue
+    }
+
+    Set-Location $REPO
+
+    # 2. Identify the active primary branch
+    $DEFAULT_BRANCH = (git remote show origin | Select-String "HEAD branch" | ForEach-Object { $_.Line.Split()[-1] })
+    if ([string]::IsNullOrEmpty($DEFAULT_BRANCH)) { $DEFAULT_BRANCH = "main" }
+
+    # 3. Create structural configuration paths 
+    if (-not (Test-Path ".github\workflows")) {
+        New-Item -ItemType Directory -Path ".github\workflows" -Force | Out-Null
+    }
+    
+    # 4. Copy the template from our current execution path
+    Copy-Item "..\invicti-scan.yml" -Destination ".github\workflows\invicti-scan.yml" -Force
+
+    # 5. Push to GitHub
+    git add .github\workflows\invicti-scan.yml
+    git commit -m "ci: add central organization invicti security scanning workflow"
+    git push origin $DEFAULT_BRANCH
+
+    if ($?) {
+        Write-Host "✅ Successfully integrated Invicti into panviva/$REPO ($DEFAULT_BRANCH branch)" -ForegroundColor Green
+    } else {
+        Write-Host "❌ Failed to push workflow to panviva/$REPO" -ForegroundColor Red
+    }
+
+    # 6. Step back and remove temporary tracking folder
+    Set-Location ..
+    Remove-Item -Recurse -Force $REPO
+}
+Write-Host "🎉 All repository integrations completed successfully!" -ForegroundColor Green
